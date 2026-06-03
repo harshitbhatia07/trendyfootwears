@@ -110,53 +110,35 @@ Add Product
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+
 <script>
 
-if(
-localStorage.getItem(
-"adminLoggedIn"
-)!=="true"
-){
+async function loadProducts(){
 
-window.location=
-"admin.html";
-
-}
-
-let products =
-JSON.parse(
-localStorage.getItem("products")
-) || [];
-
-function saveProducts(){
-
-localStorage.setItem(
-"products",
-JSON.stringify(products)
-);
-
-}
-
-function renderProducts(){
+const { data, error } =
+await supabaseClient
+.from("products")
+.select("*")
+.order("id",{ascending:false});
 
 const container =
-document.getElementById(
-"products"
-);
+document.getElementById("products");
 
 container.innerHTML="";
 
-products.forEach((p,index)=>{
+data.forEach(product=>{
 
-container.innerHTML+=`
+container.innerHTML += `
 
 <div class="product">
 
-<h3>${p.name}</h3>
+<h3>${product.name}</h3>
 
-<p>₹${p.price}</p>
+<p>₹${product.price}</p>
 
-<button onclick="deleteProduct(${index})">
+<button onclick="deleteProduct(${product.id})">
 
 Delete
 
@@ -170,46 +152,47 @@ Delete
 
 }
 
-function addProduct(){
+async function addProduct(){
 
 const name =
-document.getElementById(
-"name"
-).value;
+document.getElementById("name").value;
 
 const price =
-document.getElementById(
-"price"
-).value;
+document.getElementById("price").value;
 
 const image =
-document.getElementById(
-"image"
-).value;
+document.getElementById("image").value;
 
-products.push({
+await supabaseClient
+.from("products")
+.insert([
+{
 name,
 price,
 image
-});
+}
+]);
 
-saveProducts();
+document.getElementById("name").value="";
+document.getElementById("price").value="";
+document.getElementById("image").value="";
 
-renderProducts();
+loadProducts();
 
 }
 
-function deleteProduct(index){
+async function deleteProduct(id){
 
-products.splice(index,1);
+await supabaseClient
+.from("products")
+.delete()
+.eq("id",id);
 
-saveProducts();
-
-renderProducts();
+loadProducts();
 
 }
 
-renderProducts();
+loadProducts();
 
 </script>
 
