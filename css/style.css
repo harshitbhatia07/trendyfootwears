@@ -1,0 +1,330 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
+}
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+.spinner{
+width:70px;
+height:70px;
+border:5px solid #222;
+border-top:5px solid #d4af37;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 50px;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(10px);
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+}
+
+.logo span{
+color:#d4af37;
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#d4af37;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+url('../images/hero-banner.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+max-width:900px;
+animation:fadeUp 1.5s;
+}
+
+.badge{
+display:inline-block;
+background:#d4af37;
+color:black;
+padding:10px 20px;
+border-radius:50px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:72px;
+font-weight:800;
+}
+
+.hero h1 span{
+color:#d4af37;
+}
+
+.hero p{
+font-size:22px;
+margin-top:15px;
+color:#ddd;
+}
+
+.hero-btn{
+display:inline-block;
+margin-top:30px;
+padding:16px 40px;
+background:#25D366;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:700;
+transition:.3s;
+}
+
+.hero-btn:hover{
+transform:scale(1.08);
+}
+
+.announcement{
+background:#d4af37;
+color:black;
+padding:18px;
+text-align:center;
+font-weight:700;
+}
+
+.products-section{
+padding:100px 30px;
+}
+
+.products-section h2{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+color:#d4af37;
+}
+
+.products-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.product-card{
+background:#151515;
+border-radius:20px;
+overflow:hidden;
+transition:.4s;
+border:1px solid #222;
+}
+
+.product-card:hover{
+transform:translateY(-10px);
+}
+
+.product-card img{
+width:100%;
+height:350px;
+object-fit:cover;
+}
+
+.product-card h3{
+padding:20px 20px 0;
+font-size:24px;
+}
+
+.price{
+padding:10px 20px;
+font-size:30px;
+font-weight:700;
+color:#d4af37;
+}
+
+.size-select{
+width:90%;
+margin:10px auto;
+display:block;
+padding:12px;
+background:#222;
+color:white;
+border:none;
+border-radius:10px;
+}
+
+.order-btn{
+width:90%;
+margin:15px auto 25px;
+display:block;
+padding:14px;
+background:#25D366;
+border:none;
+color:white;
+font-weight:700;
+border-radius:10px;
+cursor:pointer;
+}
+
+.payment-section{
+padding:100px 20px;
+text-align:center;
+}
+
+.payment-section h2{
+color:#d4af37;
+font-size:42px;
+margin-bottom:15px;
+}
+
+.qr{
+width:280px;
+max-width:90%;
+margin:25px 0;
+border-radius:20px;
+}
+
+.payment-note{
+max-width:600px;
+margin:auto;
+line-height:1.8;
+}
+
+.reviews{
+padding:100px 20px;
+text-align:center;
+}
+
+.reviews h2{
+font-size:42px;
+color:#d4af37;
+margin-bottom:40px;
+}
+
+.review-box{
+background:#151515;
+padding:25px;
+border-radius:20px;
+max-width:600px;
+margin:20px auto;
+}
+
+.contact{
+padding:100px 20px;
+text-align:center;
+}
+
+.contact h2{
+color:#d4af37;
+margin-bottom:20px;
+}
+
+footer{
+background:black;
+padding:30px;
+text-align:center;
+color:#888;
+}
+
+.floating-whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:15px 25px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 0 20px rgba(37,211,102,.5);
+z-index:999;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:768px){
+
+header{
+padding:15px;
+flex-direction:column;
+gap:10px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.products-section h2,
+.payment-section h2,
+.reviews h2{
+font-size:32px;
+}
+
+}

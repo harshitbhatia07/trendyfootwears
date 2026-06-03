@@ -3,447 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trendy Footwears</title>
+
+<title>Trendy Footwears | Premium Sneakers</title>
+
+<link rel="stylesheet" href="css/style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#0b0b0b;
-color:white;
-overflow-x:hidden;
-}
-
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-url('images/hero-banner.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-}
-
-.hero-content{
-max-width:900px;
-}
-
-.badge{
-display:inline-block;
-background:#d4af37;
-color:black;
-padding:10px 20px;
-border-radius:50px;
-font-weight:700;
-margin-bottom:20px;
-}
-
-.hero h1{
-font-size:70px;
-font-weight:800;
-color:#fff;
-}
-
-.hero h1 span{
-color:#d4af37;
-}
-
-.hero p{
-font-size:22px;
-margin-top:15px;
-color:#ddd;
-}
-
-.price-tag{
-font-size:34px;
-font-weight:700;
-color:#d4af37;
-margin-top:15px;
-}
-
-.btns{
-margin-top:35px;
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:15px 30px;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-}
-
-.whatsapp{
-background:#25D366;
-color:white;
-}
-
-.instagram{
-background:#d4af37;
-color:black;
-}
-
-.offer{
-background:#d4af37;
-color:black;
-text-align:center;
-padding:18px;
-font-weight:700;
-font-size:20px;
-}
-
-.section{
-padding:80px 20px;
-max-width:1200px;
-margin:auto;
-}
-
-.heading{
-text-align:center;
-font-size:42px;
-margin-bottom:50px;
-color:#d4af37;
-}
-
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-.card{
-background:#151515;
-border-radius:20px;
-overflow:hidden;
-transition:.4s;
-border:1px solid #222;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card img{
-width:100%;
-height:350px;
-object-fit:cover;
-}
-
-.card-content{
-padding:25px;
-}
-
-.card h3{
-font-size:26px;
-margin-bottom:10px;
-}
-
-.price{
-font-size:30px;
-font-weight:700;
-color:#d4af37;
-}
-
-.stock{
-display:inline-block;
-background:#118f4f;
-padding:10px 16px;
-border-radius:50px;
-margin-top:15px;
-font-size:14px;
-}
-
-.book-btn{
-display:block;
-margin-top:20px;
-text-align:center;
-background:#25D366;
-color:white;
-padding:14px;
-border-radius:10px;
-text-decoration:none;
-font-weight:700;
-}
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.feature{
-background:#151515;
-padding:30px;
-border-radius:20px;
-text-align:center;
-font-size:18px;
-}
-
-.notice{
-background:#151515;
-padding:40px;
-border-radius:20px;
-text-align:center;
-line-height:1.8;
-}
-
-.contact{
-text-align:center;
-}
-
-.contact-box{
-background:#151515;
-padding:40px;
-border-radius:20px;
-max-width:700px;
-margin:auto;
-}
-
-.contact-box h3{
-margin-bottom:15px;
-color:#d4af37;
-}
-
-footer{
-background:black;
-padding:30px;
-text-align:center;
-color:#888;
-}
-
-.floating{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25D366;
-color:white;
-padding:15px 25px;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-box-shadow:0 0 20px rgba(37,211,102,.4);
-z-index:999;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:42px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.price-tag{
-font-size:28px;
-}
-
-.heading{
-font-size:32px;
-}
-
-}
-
-</style>
 </head>
 
 <body>
 
-<section class="hero">
+<div id="loader">
+<div class="spinner"></div>
+</div>
+
+<header>
+
+<div class="logo">
+TRENDY <span>FOOTWEARS</span>
+</div>
+
+<nav>
+
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero" id="home">
 
 <div class="hero-content">
 
 <div class="badge">
-🔥 GRAND LAUNCH COMING SOON
+🔥 NEW COLLECTION LIVE
 </div>
 
 <h1>
-TRENDY <span>FOOTWEARS</span>
+Premium <span>Sneakers</span>
+For Trendsetters
 </h1>
 
 <p>
-Premium Sneakers Collection
+Premium Quality High Tops Starting From ₹350
 </p>
 
-<div class="price-tag">
-Starting From ₹299 Only
-</div>
-
-<div class="btns">
-
-<a class="btn whatsapp"
-href="https://wa.me/918054336991">
-Order On WhatsApp
+<a href="#products" class="hero-btn">
+Shop Now
 </a>
-
-<a class="btn instagram"
-href="https://www.instagram.com/trendy_footwears/">
-Follow Instagram
-</a>
-
-</div>
 
 </div>
 
 </section>
 
-<div class="offer">
-🚚 Fast Delivery • 💵 COD Available • ⭐ Premium Quality
-</div>
+<section class="announcement">
 
-<section class="section">
+⚠️ ONLY PREPAID ORDERS ACCEPTED • ORDER CONFIRMED AFTER PAYMENT SCREENSHOT
 
-<h2 class="heading">
-Featured Collection
-</h2>
+</section>
 
-<div class="products">
+<section class="products-section" id="products">
 
-<div class="card">
+<h2>Featured Collection</h2>
 
-<img src="images/white-shoe.jpg">
+<div class="products-grid">
 
-<div class="card-content">
+<!-- Product 1 -->
+
+<div class="product-card">
+
+<img src="images/white-shoe.jpg" alt="White Shoe">
 
 <h3>Urban White High Top</h3>
 
-<div class="price">₹350</div>
-
-<div class="stock">
-🟢 In Stock Soon
+<div class="price">
+₹350
 </div>
 
-<a class="book-btn"
-href="https://wa.me/918054336991?text=Hi%20I%20want%20Urban%20White%20High%20Top">
-Book Now
-</a>
+<select class="size-select">
+
+<option>Select Size</option>
+<option>6 UK</option>
+<option>7 UK</option>
+<option>8 UK</option>
+<option>9 UK</option>
+<option>10 UK</option>
+
+</select>
+
+<button
+class="order-btn"
+onclick="orderProduct('Urban White High Top', this)">
+Order Now
+</button>
 
 </div>
 
-</div>
+<!-- Product 2 -->
 
-<div class="card">
+<div class="product-card">
 
-<img src="images/red-shoe.jpg">
-
-<div class="card-content">
+<img src="images/red-shoe.jpg" alt="Red Shoe">
 
 <h3>Red Shadow High Top</h3>
 
-<div class="price">₹350</div>
-
-<div class="stock">
-🟢 In Stock Soon
+<div class="price">
+₹350
 </div>
 
-<a class="book-btn"
-href="https://wa.me/918054336991?text=Hi%20I%20want%20Red%20Shadow%20High%20Top">
-Book Now
-</a>
+<select class="size-select">
 
-</div>
+<option>Select Size</option>
+<option>6 UK</option>
+<option>7 UK</option>
+<option>8 UK</option>
+<option>9 UK</option>
+<option>10 UK</option>
 
-</div>
+</select>
 
-</div>
+<button
+class="order-btn"
+onclick="orderProduct('Red Shadow High Top', this)">
+Order Now
+</button>
 
-</section>
-
-<section class="section">
-
-<h2 class="heading">
-Why Choose Us?
-</h2>
-
-<div class="features">
-
-<div class="feature">
-🔥 Trending Sneaker Designs
-</div>
-
-<div class="feature">
-💵 Cash On Delivery
-</div>
-
-<div class="feature">
-🚚 Fast Delivery
-</div>
-
-<div class="feature">
-⭐ Premium Quality
 </div>
 
 </div>
 
 </section>
 
-<section class="section">
+<section class="payment-section">
 
-<div class="notice">
-
-<h2 style="color:#d4af37;margin-bottom:20px;">
-New Collection Arriving Soon
-</h2>
+<h2>UPI Payment</h2>
 
 <p>
-Our latest sneaker collection is currently being prepared.
-More styles and colours will be added soon.
-Follow us on Instagram and WhatsApp for launch updates.
+Scan QR & Make Payment Before Ordering
+</p>
+
+<img src="images/qr.png" class="qr">
+
+<p class="payment-note">
+
+After payment send screenshot on WhatsApp.
+Only then your order will be confirmed.
+
+</p>
+
+</section>
+
+<section id="reviews" class="reviews">
+
+<h2>Customer Reviews</h2>
+
+<div class="review-box">
+
+⭐⭐⭐⭐⭐
+
+<p>
+Amazing quality and premium feel.
+</p>
+
+</div>
+
+<div class="review-box">
+
+⭐⭐⭐⭐⭐
+
+<p>
+Worth every rupee.
+</p>
+
+</div>
+
+<div class="review-box">
+
+⭐⭐⭐⭐⭐
+
+<p>
+Fast delivery and stylish look.
 </p>
 
 </div>
 
 </section>
 
-<section class="section contact">
+<section id="contact" class="contact">
 
-<h2 class="heading">
-Contact Us
-</h2>
+<h2>Contact Us</h2>
 
-<div class="contact-box">
+<p>WhatsApp: 8054336991</p>
 
-<h3>📱 WhatsApp</h3>
-<p>8054336991</p>
-
-<br>
-
-<h3>📸 Instagram</h3>
-<p>@trendy_footwears</p>
-
-<br>
-
-<h3>✨ Trendy Footwears</h3>
-<p>Step Into Trend</p>
-
-</div>
+<p>Instagram: @trendy_footwears</p>
 
 </section>
 
 <footer>
-© 2026 Trendy Footwears • All Rights Reserved
+
+© 2026 Trendy Footwears
+
 </footer>
 
-<a class="floating"
-href="https://wa.me/918054336991">
-WhatsApp Us
+<a
+href="https://wa.me/918054336991"
+class="floating-whatsapp">
+
+WhatsApp
+
 </a>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
