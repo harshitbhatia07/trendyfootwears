@@ -1,124 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Trendy Footwears Admin</title>
+<title>Admin Dashboard</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
-
 body{
-background:#0b0b0b;
+background:#000;
 color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+font-family:Arial;
+padding:20px;
 }
 
-.login-box{
-background:#151515;
-padding:40px;
-border-radius:20px;
-width:400px;
-}
-
-h2{
-text-align:center;
-margin-bottom:25px;
-color:#d4af37;
+.card{
+background:#111;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
 }
 
 input{
 width:100%;
-padding:14px;
-margin-top:10px;
-background:#222;
-border:none;
-border-radius:10px;
-color:white;
+padding:10px;
+margin:10px 0;
 }
 
 button{
-width:100%;
-padding:14px;
-margin-top:20px;
-background:#25D366;
+padding:10px 20px;
+background:#d4af37;
 border:none;
-border-radius:10px;
-font-weight:700;
 cursor:pointer;
 }
 
+.product{
+border-bottom:1px solid #333;
+padding:10px;
+}
 </style>
-
 </head>
-
 <body>
 
-<div class="login-box">
+<h1>Admin Dashboard</h1>
 
-<h2>Admin Login</h2>
+<div class="card">
 
-<input
-type="email"
-id="email"
-placeholder="Email">
+<h3>Add Product</h3>
 
-<input
-type="password"
-id="password"
-placeholder="Password">
+<input id="pname" placeholder="Product Name">
 
-<button onclick="login()">
-Login
+<input id="pprice" placeholder="Price">
+
+<input id="pimage" placeholder="Image URL">
+
+<button onclick="addProduct()">
+Add Product
 </button>
+
+</div>
+
+<div class="card">
+
+<h3>Products</h3>
+
+<div id="productList"></div>
 
 </div>
 
 <script>
 
-function login(){
+let products =
+JSON.parse(localStorage.getItem("products"))
+|| [];
 
-const email =
-document.getElementById("email").value;
+function renderProducts(){
 
-const password =
-document.getElementById("password").value;
+const list =
+document.getElementById("productList");
 
-/*
-CHANGE THESE
-*/
+list.innerHTML="";
 
-if(
-email==="admin@trendy.com"
-&&
-password==="Harshit@123"
-){
+products.forEach((p,index)=>{
+
+list.innerHTML += `
+<div class="product">
+${p.name} - ₹${p.price}
+
+<button onclick="deleteProduct(${index})">
+Delete
+</button>
+
+</div>
+`;
+
+});
+
+}
+
+function addProduct(){
+
+const product = {
+
+name:
+document.getElementById("pname").value,
+
+price:
+document.getElementById("pprice").value,
+
+image:
+document.getElementById("pimage").value
+
+};
+
+products.push(product);
 
 localStorage.setItem(
-"adminLoggedIn",
-"true"
+"products",
+JSON.stringify(products)
 );
 
-window.location =
-"dashboard.html";
-
-}else{
-
-alert("Invalid Login");
+renderProducts();
 
 }
 
+function deleteProduct(index){
+
+products.splice(index,1);
+
+localStorage.setItem(
+"products",
+JSON.stringify(products)
+);
+
+renderProducts();
+
 }
+
+renderProducts();
 
 </script>
 
