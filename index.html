@@ -32,15 +32,6 @@ TRENDY <span>FOOTWEARS</span>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 <a href="cart.html">🛒 Cart</a>
-
-<a href="wishlist.html">❤️ Wishlist</a>
-
-<a href="checkout.html">💳 Checkout</a>
-
-<a href="admin.html">👨‍💼 Admin</a>
-<a href="cart.html">🛒 Cart</a>
-<a href="cart.html">
-🛒 Cart
 <span id="cartCount">0</span>
 </a>
 </nav>
@@ -115,7 +106,7 @@ placeholder="Search Shoes..."
 
 <h2>Featured Collection</h2>
 
-<div class="products-grid">
+<div class="products-grid" id="productsGrid">
 
 <!-- Product 1 -->
 
@@ -143,15 +134,7 @@ placeholder="Search Shoes..."
 <option>10 UK</option>
 
 </select>
-<button
-class="cart-btn"
-onclick="addToCart(
-'Nike Air Max',
-2999,
-'images/shoe1.jpg'
-)">
-Add To Cart
-</button>
+
 <button
 class="order-btn cart-btn">
 Add To Cart
@@ -192,15 +175,6 @@ Order Now
 <option>10 UK</option>
 
 </select>
-<button
-class="cart-btn"
-onclick="addToCart(
-'Nike Air Max',
-2999,
-'images/shoe1.jpg'
-)">
-Add To Cart
-</button>
 <button
 class="order-btn cart-btn">
 Add To Cart
