@@ -244,3 +244,35 @@ console.log(
 "%cTRENDY FOOTWEARS",
 "color:gold;font-size:24px;font-weight:bold;"
 );
+
+// Product Search
+
+const searchInput =
+document.getElementById("searchInput");
+
+if(searchInput){
+
+searchInput.addEventListener("keyup",()=>{
+
+const value =
+searchInput.value.toLowerCase();
+
+document
+.querySelectorAll(".product-card")
+.forEach(card=>{
+
+const title =
+card.querySelector("h3")
+.innerText
+.toLowerCase();
+
+card.style.display =
+title.includes(value)
+? "block"
+: "none";
+
+});
+
+});
+
+}

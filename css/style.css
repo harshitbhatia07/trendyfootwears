@@ -328,3 +328,59 @@ font-size:32px;
 }
 
 }
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:70px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.feature-box{
+background:#151515;
+padding:30px;
+border-radius:20px;
+text-align:center;
+border:1px solid #222;
+transition:.3s;
+}
+
+.feature-box:hover{
+transform:translateY(-8px);
+border-color:#d4af37;
+}
+
+.feature-box h3{
+margin:15px 0;
+color:#d4af37;
+}
+
+.search-section{
+padding:40px 20px;
+text-align:center;
+}
+
+#searchInput{
+width:90%;
+max-width:500px;
+padding:15px;
+border-radius:10px;
+border:2px solid #d4af37;
+background:#111;
+color:white;
+font-size:16px;
+}
+
+.cart-btn{
+background:#d4af37;
+color:black;
+margin-top:10px;
+}
+
+.stock{
+color:#25D366;
+font-weight:bold;
+padding:0 20px;
+}
