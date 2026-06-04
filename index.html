@@ -12,6 +12,7 @@
 </head>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/supabase.js"></script>
+
 <body>
 
 <div id="loader">
@@ -30,7 +31,11 @@ TRENDY <span>FOOTWEARS</span>
 <a href="#products">Products</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
-
+<a href="cart.html">🛒 Cart</a>
+<a href="cart.html">
+🛒 Cart
+<span id="cartCount">0</span>
+</a>
 </nav>
 
 </header>
@@ -132,6 +137,15 @@ placeholder="Search Shoes..."
 
 </select>
 <button
+class="cart-btn"
+onclick="addToCart(
+'Nike Air Max',
+2999,
+'images/shoe1.jpg'
+)">
+Add To Cart
+</button>
+<button
 class="order-btn cart-btn">
 Add To Cart
 </button>
@@ -171,6 +185,15 @@ Order Now
 <option>10 UK</option>
 
 </select>
+<button
+class="cart-btn"
+onclick="addToCart(
+'Nike Air Max',
+2999,
+'images/shoe1.jpg'
+)">
+Add To Cart
+</button>
 <button
 class="order-btn cart-btn">
 Add To Cart

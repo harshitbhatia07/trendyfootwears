@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart | Trendy Footwears</title>
+
+<style>
+body{
+background:#000;
+color:white;
+font-family:Arial,sans-serif;
+margin:0;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#d4af37;
+}
+
+.cart-container{
+max-width:1000px;
+margin:auto;
+}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+padding:15px;
+margin:15px 0;
+border-radius:12px;
+border:1px solid #222;
+}
+
+.cart-item img{
+width:80px;
+height:80px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.total{
+font-size:24px;
+font-weight:bold;
+margin-top:20px;
+text-align:right;
+color:#d4af37;
+}
+
+.btn{
+background:#d4af37;
+color:black;
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.remove{
+background:red;
+color:white;
+}
+
+.checkout{
+display:flex;
+justify-content:flex-end;
+margin-top:20px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>🛒 Your Cart</h1>
+
+<div class="cart-container" id="cartContainer"></div>
+
+<div class="total" id="totalPrice">
+Total ₹0
+</div>
+
+<div class="checkout">
+<button class="btn" onclick="checkoutWhatsApp()">
+Order on WhatsApp
+</button>
+</div>
+
+<script>
+
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartContainer =
+document.getElementById("cartContainer");
+
+function renderCart(){
+
+cartContainer.innerHTML="";
+
+let total=0;
+
+cart.forEach((item,index)=>{
+
+total += item.price;
+
+cartContainer.innerHTML += `
+<div class="cart-item">
+
+<div style="display:flex;gap:15px;align-items:center;">
+<img src="${item.image}">
+<div>
+<h3>${item.name}</h3>
+<p>₹${item.price}</p>
+</div>
+</div>
+
+<button
+class="btn remove"
+onclick="removeItem(${index})">
+Remove
+</button>
+
+</div>
+`;
+
+});
+
+document.getElementById("totalPrice")
+.innerHTML=`Total ₹${total}`;
+
+}
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+renderCart();
+
+}
+
+function checkoutWhatsApp(){
+
+let message =
+"🛍️ New Order:%0A%0A";
+
+let total=0;
+
+cart.forEach(item=>{
+
+message +=
+`${item.name} - ₹${item.price}%0A`;
+
+total += item.price;
+
+});
+
+message += `%0A💰 Total: ₹${total}`;
+
+window.open(
+`https://wa.me/918054336991?text=${message}`,
+"_blank"
+);
+
+}
+
+renderCart();
+
+</script>
+
+</body>
+</html>

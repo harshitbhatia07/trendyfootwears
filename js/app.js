@@ -276,3 +276,41 @@ title.includes(value)
 });
 
 }
+
+function addToCart(name,price,image){
+
+let cart =
+JSON.parse(localStorage.getItem("cart"))
+|| [];
+
+cart.push({
+name:name,
+price:price,
+image:image
+});
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert(name + " added to cart");
+
+}
+
+function updateCartCount(){
+
+let cart =
+JSON.parse(localStorage.getItem("cart"))
+|| [];
+
+let count =
+document.getElementById("cartCount");
+
+if(count){
+count.innerText = cart.length;
+}
+
+}
+
+updateCartCount();
