@@ -204,76 +204,97 @@ Place Order
 </form>
 
 </section>
-
 <script>
 
 const amount =
-localStorage.getItem(
-"totalAmount"
-);
+localStorage.getItem("totalAmount") || 0;
 
-document.getElementById(
-"amount"
-).innerHTML=
+document.getElementById("amount").innerHTML =
 `Total Amount : ₹${amount}`;
 
-document
-.getElementById(
-"orderForm"
-)
+document.getElementById("orderForm")
+.addEventListener("submit", function(e){
 
-.addEventListener(
-"submit",
+    e.preventDefault();
 
-function(e){
+    const order = {
 
-e.preventDefault();
+        name:
+        document.getElementById("name").value,
 
-const order = {
+        phone:
+        document.getElementById("phone").value,
 
-name:
-document.getElementById(
-"name"
-).value,
+        address:
+        document.getElementById("address").value,
 
-phone:
-document.getElementById(
-"phone"
-).value,
+        city:
+        document.getElementById("city").value,
 
-address:
-document.getElementById(
-"address"
-).value,
+        state:
+        document.getElementById("state").value,
 
-city:
-document.getElementById(
-"city"
-).value,
+        utr:
+        document.getElementById("utr").value,
 
-state:
-document.getElementById(
-"state"
-).value,
+        amount
 
-utr:
-document.getElementById(
-"utr"
-).value,
+    };
 
-amount
+    localStorage.setItem(
+        "latestOrder",
+        JSON.stringify(order)
+    );
 
-};
+    const orderId =
+    "ORD" +
+    Math.floor(
+        100000 + Math.random() * 900000
+    );
 
-localStorage.setItem(
-"latestOrder",
-JSON.stringify(order)
-);
+    fetch(
+        "https://script.google.com/macros/s/AKfycbzPEdMaEuBE7qJ81XupqunXbYqCDQG00xsjH89pj2UinvhiczECA3_H7vLoNT11abkA/exec",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                orderId: orderId,
+                name: order.name,
+                phone: order.phone,
+                address: order.address,
+                city: order.city,
+                state: order.state,
+                utr: order.utr,
+                amount: order.amount
+            })
+        }
+    )
+    .then(response => response.text())
+    .then(data => {
 
-window.location =
-"success.html";
+        localStorage.setItem(
+            "orderId",
+            orderId
+        );
+
+        window.location =
+        "success.html";
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Order save nahi hua. Google Sheet connection check karo."
+        );
+
+    });
 
 });
+
 
 </script>
 
