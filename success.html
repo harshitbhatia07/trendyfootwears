@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.success-box{
+    background:#1a1a1a;
+    width:100%;
+    max-width:550px;
+    text-align:center;
+    padding:40px;
+    border-radius:20px;
+    border:1px solid rgba(255,215,0,.2);
+    box-shadow:0 0 30px rgba(255,215,0,.12);
+    animation:popup .5s ease;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.check{
+    width:100px;
+    height:100px;
+    background:#00c853;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+    margin:auto;
+}
+
+h1{
+    color:#FFD700;
+    margin-top:20px;
+}
+
+p{
+    color:#ccc;
+    margin-top:12px;
+    line-height:1.7;
+}
+
+.order-info{
+    background:#242424;
+    padding:20px;
+    border-radius:12px;
+    margin-top:25px;
+    text-align:left;
+}
+
+.order-info h3{
+    color:#FFD700;
+    margin-bottom:10px;
+}
+
+.order-info p{
+    margin:8px 0;
+}
+
+.btn{
+    display:block;
+    width:100%;
+    text-decoration:none;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+}
+
+.home{
+    background:#FFD700;
+    color:black;
+}
+
+</style>
+</head>
+<body>
+
+<div class="success-box">
+
+    <div class="check">✓</div>
+
+    <h1>Order Confirmed!</h1>
+
+    <p>
+        Thank you for shopping with us.
+        Your payment has been received successfully.
+    </p>
+
+    <div class="order-info">
+
+        <h3>Order Details</h3>
+
+        <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+
+        <p><strong>Name:</strong> <span id="customerName"></span></p>
+
+        <p><strong>Amount:</strong> ₹<span id="amount"></span></p>
+
+        <p><strong>Status:</strong> Confirmed ✅</p>
+
+    </div>
+
+    <a
+    href="https://wa.me/918054336991"
+    class="btn whatsapp">
+    Contact on WhatsApp
+    </a>
+
+    <a
+    href="index.html"
+    class="btn home">
+    Continue Shopping
+    </a>
+
+</div>
+
+<script>
+
+const order =
+JSON.parse(
+localStorage.getItem("latestOrder")
+);
+
+const orderId =
+"ORD" +
+Math.floor(
+100000 + Math.random()*900000
+);
+
+document.getElementById(
+"orderId"
+).innerText = orderId;
+
+document.getElementById(
+"customerName"
+).innerText =
+order?.name || "Customer";
+
+document.getElementById(
+"amount"
+).innerText =
+order?.amount || "0";
+
+localStorage.setItem(
+"orderId",
+orderId
+);
+
+</script>
+
+</body>
+</html>
