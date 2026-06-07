@@ -1,101 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Checkout</title>
 
-<style>
-body{
-background:#000;
-color:#fff;
-font-family:Arial;
-padding:20px;
-}
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
-.container{
-max-width:600px;
-margin:auto;
-}
+<title>
+Checkout
+</title>
 
-input,textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:8px;
-border:none;
-}
+<link rel="stylesheet"
+href="css/style.css">
 
-button{
-width:100%;
-padding:15px;
-background:#d4af37;
-border:none;
-font-weight:bold;
-cursor:pointer;
-}
-</style>
 </head>
+
 <body>
 
-<div class="container">
+<section
+style="
+padding:100px 8%;">
 
-<h1>Checkout</h1>
+<h1
+style="
+color:#FFD700;
+margin-bottom:20px;">
 
-<input type="text" id="name" placeholder="Full Name">
+Checkout
 
-<input type="tel" id="phone" placeholder="Phone Number">
+</h1>
 
-<textarea id="address" placeholder="Full Address"></textarea>
+<form id="orderForm">
 
-<button onclick="placeOrder()">
+<input
+type="text"
+id="name"
+placeholder="Full Name"
+required>
+
+<input
+type="text"
+id="phone"
+placeholder="Phone Number"
+required>
+
+<input
+type="text"
+id="address"
+placeholder="Full Address"
+required>
+
+<input
+type="text"
+id="city"
+placeholder="City"
+required>
+
+<input
+type="text"
+id="state"
+placeholder="State"
+required>
+
+<h2 id="amount">
+
+</h2>
+
+<h3
+style="color:#FFD700;">
+
+UPI ID
+
+</h3>
+
+<p>
+haryanvi-083@ptyes
+</p>
+
+<img
+src="assets/upi-qr.png"
+width="250">
+
+<br><br>
+
+<input
+type="text"
+id="utr"
+placeholder="Enter UTR / Transaction ID"
+required>
+
+<button
+type="submit"
+class="add-btn">
+
 Place Order
+
 </button>
 
-</div>
+</form>
+
+</section>
 
 <script>
-function placeOrder(){
 
-const name =
-document.getElementById("name").value;
-
-const phone =
-document.getElementById("phone").value;
-
-const address =
-document.getElementById("address").value;
-
-let cart =
-JSON.parse(localStorage.getItem("cart")) || [];
-
-let message =
-"🛒 NEW ORDER%0A%0A";
-
-message +=
-"Name: "+name+"%0A";
-
-message +=
-"Phone: "+phone+"%0A";
-
-message +=
-"Address: "+address+"%0A%0A";
-
-let total=0;
-
-cart.forEach(item=>{
-message += item.name+" ₹"+item.price+"%0A";
-total += item.price;
-});
-
-message += "%0A💰 Total ₹"+total;
-
-window.open(
-"https://wa.me/918054336991?text="+message,
-"_blank"
+const amount =
+localStorage.getItem(
+"totalAmount"
 );
 
-}
+document.getElementById(
+"amount"
+).innerHTML=
+`Total Amount : ₹${amount}`;
+
+document
+.getElementById(
+"orderForm"
+)
+
+.addEventListener(
+"submit",
+
+function(e){
+
+e.preventDefault();
+
+const order = {
+
+name:
+document.getElementById(
+"name"
+).value,
+
+phone:
+document.getElementById(
+"phone"
+).value,
+
+address:
+document.getElementById(
+"address"
+).value,
+
+city:
+document.getElementById(
+"city"
+).value,
+
+state:
+document.getElementById(
+"state"
+).value,
+
+utr:
+document.getElementById(
+"utr"
+).value,
+
+amount
+
+};
+
+localStorage.setItem(
+"latestOrder",
+JSON.stringify(order)
+);
+
+window.location =
+"success.html";
+
+});
+
 </script>
 
 </body>

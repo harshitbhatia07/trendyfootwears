@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,269 +9,201 @@
 
 <link rel="stylesheet" href="css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
 
 <body>
 
-<div id="loader">
-<div class="spinner"></div>
-</div>
+<!-- NAVBAR -->
 
-<header>
+<nav class="navbar">
 
 <div class="logo">
-TRENDY <span>FOOTWEARS</span>
+TRENDY FOOTWEARS
 </div>
 
-<nav>
+<ul class="nav-links">
 
+<li>
 <a href="#home">Home</a>
+</li>
+
+<li>
 <a href="#products">Products</a>
-<a href="#reviews">Reviews</a>
+</li>
+
+<li>
+<a href="#about">About</a>
+</li>
+
+<li>
 <a href="#contact">Contact</a>
-<a href="cart.html">🛒 Cart</a>
-<span id="cartCount">0</span>
+</li>
+
+<li>
+<a href="cart.html">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span id="cart-count">
+0
+</span>
+
 </a>
+</li>
+
+</ul>
+
 </nav>
 
-</header>
+<!-- HERO -->
 
-<section class="hero" id="home">
+<section id="home" class="hero">
 
 <div class="hero-content">
 
-<div class="badge">
-🔥 NEW COLLECTION LIVE
-</div>
-
 <h1>
-Premium <span>Sneakers</span>
-For Trendsetters
+Premium Sneakers Collection
 </h1>
 
 <p>
-Premium Quality High Tops Starting From ₹350
+Luxury Style • Free Delivery • Online Payment
 </p>
 
 <a href="#products" class="hero-btn">
+
 Shop Now
+
 </a>
 
 </div>
 
 </section>
 
-<section class="announcement">
+<!-- PRODUCTS -->
 
-⚠️ ONLY PREPAID ORDERS ACCEPTED • ORDER CONFIRMED AFTER PAYMENT SCREENSHOT
+<section id="products" class="products-section">
+
+<h2>
+Featured Collection
+</h2>
+
+<div id="products-container"
+class="products-grid">
+
+</div>
 
 </section>
 
-<section class="features">
+<!-- WHY US -->
+
+<section id="about" class="why-us">
+
+<h2>
+Why Choose Us
+</h2>
+
+<div class="features">
 
 <div class="feature-box">
-🚚
-<h3>Fast Delivery</h3>
-<p>All India Shipping Available</p>
+
+<i class="fa-solid fa-truck-fast"></i>
+
+<h3>
+Free Delivery
+</h3>
+
+<p>
+All Over India
+</p>
+
 </div>
 
 <div class="feature-box">
-💯
-<h3>Premium Quality</h3>
-<p>Carefully Selected Products</p>
+
+<i class="fa-solid fa-shield"></i>
+
+<h3>
+Secure Payment
+</h3>
+
+<p>
+UPI Payment Supported
+</p>
+
 </div>
 
 <div class="feature-box">
-🔒
-<h3>Secure Orders</h3>
-<p>WhatsApp Confirmation Support</p>
-</div>
 
-</section>
+<i class="fa-brands fa-instagram"></i>
 
-<section class="search-section">
-
-<h2>Find Your Style</h2>
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search Shoes..."
->
-
-</section>
-<section class="products-section" id="products">
-
-<h2>Featured Collection</h2>
-
-<div class="products-grid" id="productsGrid">
-
-<!-- Product 1 -->
-
-<div class="product-card">
-
-<img src="images/white-shoe.jpg" alt="White Shoe">
-
-<h3>Urban White High Top</h3>
-
-<div class="price">
-₹350
-</div>
-
-<div class="stock">
-✔ In Stock
-</div>
-
-<select class="size-select">
-
-<option>Select Size</option>
-<option>6 UK</option>
-<option>7 UK</option>
-<option>8 UK</option>
-<option>9 UK</option>
-<option>10 UK</option>
-
-</select>
-
-<button
-class="order-btn cart-btn">
-Add To Cart
-</button>
-<button
-class="order-btn"
-onclick="orderProduct('Urban White High Top', this)">
-Order Now
-</button>
-
-</div>
-
-
-<!-- Product 2 -->
-
-<div class="product-card">
-
-<img src="images/red-shoe.jpg" alt="Red Shoe">
-
-<h3>Red Shadow High Top</h3>
-
-<div class="price">
-₹350
-</div>
-
-
-<div class="stock">
-✔ In Stock
-</div>
-
-<select class="size-select">
-
-<option>Select Size</option>
-<option>6 UK</option>
-<option>7 UK</option>
-<option>8 UK</option>
-<option>9 UK</option>
-<option>10 UK</option>
-
-</select>
-<button
-class="order-btn cart-btn">
-Add To Cart
-</button>
-<button
-class="order-btn"
-onclick="orderProduct('Red Shadow High Top', this)">
-Order Now
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="payment-section">
-
-<h2>UPI Payment</h2>
+<h3>
+Instagram Store
+</h3>
 
 <p>
-Scan QR & Make Payment Before Ordering
-</p>
-
-<img src="images/qr.png" class="qr">
-
-<p class="payment-note">
-
-After payment send screenshot on WhatsApp.
-Only then your order will be confirmed.
-
-</p>
-
-</section>
-
-<section id="reviews" class="reviews">
-
-<h2>Customer Reviews</h2>
-
-<div class="review-box">
-
-⭐⭐⭐⭐⭐
-
-<p>
-Amazing quality and premium feel.
+Trusted Seller
 </p>
 
 </div>
-
-<div class="review-box">
-
-⭐⭐⭐⭐⭐
-
-<p>
-Worth every rupee.
-</p>
-
-</div>
-
-<div class="review-box">
-
-⭐⭐⭐⭐⭐
-
-<p>
-Fast delivery and stylish look.
-</p>
 
 </div>
 
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
 
-<h2>Contact Us</h2>
+<h2>
+Contact Us
+</h2>
 
-<p>WhatsApp: 8054336991</p>
+<p>
 
-<p>Instagram: @trendy_footwears</p>
+Instagram:
+<a href="https://instagram.com/trendy_footwears"
+target="_blank">
+
+@trendy_footwears
+
+</a>
+
+</p>
+
+<p>
+
+WhatsApp:
+<a href="https://wa.me/918054336991">
+
+8054336991
+
+</a>
+
+</p>
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
 
-© 2026 Trendy Footwears
+<p>
+
+© 2026 Trendy Footwears.
+All Rights Reserved.
+
+</p>
 
 </footer>
 
-<a
-href="https://wa.me/918054336991"
-class="floating-whatsapp">
-
-WhatsApp
-
-</a>
+<script src="js/products.js"></script>
 
 <script src="js/app.js"></script>
 
 </body>
-</html>>
+</html>
